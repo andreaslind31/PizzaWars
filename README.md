@@ -4,6 +4,7 @@ In the words of Olof Svahn:
 
 > De bö du ju va va
 
+![This is an image](https://i.pinimg.com/736x/6a/4b/04/6a4b04158fbeca0481f075bb908e589d.jpg)
 
 ## About
 An excercise from Campus Varberg about displaying and rating pizzas.
