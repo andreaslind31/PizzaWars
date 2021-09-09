@@ -16,7 +16,8 @@
                         {{ topping }}
                     </li>
                 </ul>
-                <a class="card-footer btn btn-outline-success" v-on:click="winner()">Set as winner</a>
+                <a class="card-footer btn btn-outline-success" v-on:click="incrCounter()">Set as winner</a>
+                <h2 class="text-success" v-if="counter == 1">{{ pizza.name }} WON!!</h2>
             </div>
         </div>
     </div>

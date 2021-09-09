@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PizzaWars.API;
+using PizzaWars.Models;
 using PizzaWars.UI.Models;
 using System;
 using System.Collections.Generic;
@@ -22,7 +24,16 @@ namespace PizzaWars.UI.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public List<PizzaModel> HomePizzaImg()
+        {
+            var pizzaImg = PizzaProcessor.LoadPizza();
+            PizzaModel homePizzaImg = new PizzaModel();
+            homePizzaImg.Image = pizzaImg.Result.Image;
+            List<PizzaModel> homePizzaList = new List<PizzaModel>() { homePizzaImg };
 
+            return homePizzaList;
+        }
         public IActionResult Privacy()
         {
             return View();

@@ -2,17 +2,25 @@
     el: '#app',
     data: {
         pizzas: [],
-        message: 'Här blir det pizzooor!',
-        showMessage: true,
+        homePizza: [],
         counter: 0,
     },
     mounted() {
         this.getData();
+        this.getDataHome();
     },
     methods: {
         getData() {
             axios.get('/Pizza/Pizzas').then(res => {
                 this.pizzas = res.data;
+                console.log(res.data);
+            }).catch(err => {
+                console.log(err)
+            });
+        },
+        getDataHome() {
+            axios.get('/Home/HomePizzaImg').then(res => {
+                this.homePizza = res.data;
                 console.log(res.data);
             }).catch(err => {
                 console.log(err)
@@ -26,8 +34,5 @@
         incrCounter() {
             this.counter++
         },
-        winner() {
-
-        }
     }
 })

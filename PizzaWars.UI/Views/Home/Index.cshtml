@@ -1,8 +1,10 @@
 ﻿@* Home/Index *@
 
-<div class="text-center">
+<div class="h-100 text-center">
     <h1 class="h1 text-black-50">Är du redo för en sjujävla pizza tävling?!</h1>
-    <p class="text-center">
+</div>
+<div class="h-100 text-center">
+    <p class="text-info">
         Klicka
         <a class="btn btn-info" asp-controller="Pizza" asp-action="Index">
             här för att starta
@@ -10,6 +12,16 @@
         Pizza Wars!
     </p>
 </div>
+<div class="text-center">
+    <a asp-controller="Pizza" asp-action="Index"><img class="img-fluid" src="/img/PizzaWars.svg" /></a>
+</div>
+@*<div class="img-fluid text-center" v-for="pizza in homePizza" :key="pizza.name">
+    <img class="img-fluid" v-bind:src="pizza.image" />
+</div>*@
+
+@*@section scripts {
+    <script src="~/js/app.js" asp-append-version="true"></script>
+}*@
 
 
 

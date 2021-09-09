@@ -15,4 +15,8 @@
     <ProjectReference Include="..\PizzaWars.Models\PizzaWars.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
 </Project>
