@@ -7,6 +7,6 @@
 
     },
     methods: {
-        //Vue methods goes here
+        
     }
 })
