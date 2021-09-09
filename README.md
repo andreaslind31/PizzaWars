@@ -2,11 +2,11 @@
 
 In the words of Olof Svahn:
 
-> De bˆ du ju va va
+> De b√∂ du ju va va
 
 
-### About
+## About
 An excercise from Campus Varberg about displaying and rating pizzas.
 
-###Tech
+## Tech
 An ASP.NET MVC web app with Vue. Images from the [foodish-api](https://foodish-api.herokuapp.com/api/images/pizza)
