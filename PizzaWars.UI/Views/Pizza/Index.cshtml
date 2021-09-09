@@ -1,0 +1,36 @@
+﻿@* Pizza/Index *@
+@model PizzaWars.Models.PizzaModel
+
+
+<div class="row bg-dark">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">@Model.Name</h1>
+                <p class="card-subtitle">Menu nr: @Model.Id</p>
+                <img class="card-img" src="@Model.Image" />
+                <p class="card-text">Toppings:</p>
+                <ul class="card-text">
+                    @{
+                        foreach (var item in Model.Toppings)
+                        {
+                            <li>
+                                @item
+                            </li>
+                        }
+                    }
+                </ul>
+                <p class="card-text">Hipster level: @Model.HypeLevel</p>
+                <a class="btn btn-info"
+                   asp-controller="Joke" asp-action="Edit" asp-route-name="@Model.Name" asp-route-id="@Model.Id"
+                   asp-route-toppings="@Model.Toppings" asp-route-hypelevel="@Model.HypeLevel">
+                    Ändra här
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/js/app.js" asp-append-version="true"></script>
+} 

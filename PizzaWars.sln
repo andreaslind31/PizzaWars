@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaWars.UI", "PizzaWars.UI\PizzaWars.UI.csproj", "{D3F8191A-65EE-4FA3-A6AC-340C4BC5A7FF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5CA02C76-2875-44DF-9CA5-29C73C468EB7} = {5CA02C76-2875-44DF-9CA5-29C73C468EB7}
+		{BD98AAB3-C01E-4DE8-A180-5C1308E0CCDC} = {BD98AAB3-C01E-4DE8-A180-5C1308E0CCDC}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaWars.Models", "PizzaWars.Models\PizzaWars.Models.csproj", "{D286762E-BA07-4048-BFC5-2EBBF4FBDA14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaWars.API", "PizzaWars.API\PizzaWars.API.csproj", "{BD98AAB3-C01E-4DE8-A180-5C1308E0CCDC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D286762E-BA07-4048-BFC5-2EBBF4FBDA14} = {D286762E-BA07-4048-BFC5-2EBBF4FBDA14}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaWars.App", "PizzaWars.App\PizzaWars.App.csproj", "{5CA02C76-2875-44DF-9CA5-29C73C468EB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaWars.Data", "PizzaWars.Data\PizzaWars.Data.csproj", "{6A18CC44-5BDE-4997-BF2E-7ECE3A1700D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3F8191A-65EE-4FA3-A6AC-340C4BC5A7FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3F8191A-65EE-4FA3-A6AC-340C4BC5A7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3F8191A-65EE-4FA3-A6AC-340C4BC5A7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3F8191A-65EE-4FA3-A6AC-340C4BC5A7FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D286762E-BA07-4048-BFC5-2EBBF4FBDA14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D286762E-BA07-4048-BFC5-2EBBF4FBDA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D286762E-BA07-4048-BFC5-2EBBF4FBDA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D286762E-BA07-4048-BFC5-2EBBF4FBDA14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD98AAB3-C01E-4DE8-A180-5C1308E0CCDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD98AAB3-C01E-4DE8-A180-5C1308E0CCDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD98AAB3-C01E-4DE8-A180-5C1308E0CCDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD98AAB3-C01E-4DE8-A180-5C1308E0CCDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CA02C76-2875-44DF-9CA5-29C73C468EB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CA02C76-2875-44DF-9CA5-29C73C468EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CA02C76-2875-44DF-9CA5-29C73C468EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CA02C76-2875-44DF-9CA5-29C73C468EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A18CC44-5BDE-4997-BF2E-7ECE3A1700D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A18CC44-5BDE-4997-BF2E-7ECE3A1700D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A18CC44-5BDE-4997-BF2E-7ECE3A1700D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A18CC44-5BDE-4997-BF2E-7ECE3A1700D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42478297-D9FD-4D35-B1ED-B8D92A80DE75}
+	EndGlobalSection
+EndGlobal
