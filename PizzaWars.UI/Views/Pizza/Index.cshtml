@@ -3,33 +3,26 @@
 
 
 <div class="row bg-dark">
-    <div class="col">
+    <div class="col-sm-6" v-for="pizza in pizzas" :key="pizza.name">
         <div class="card">
             <div class="card-body">
-                <h1 class="card-title">@Model.Name</h1>
-                <p class="card-subtitle">Menu nr: @Model.Id</p>
-                <img class="card-img" src="@Model.Image" />
+                <h1 class="card-title" v-on:click="deletePizza(pizza.name)">{{ pizza.name }}</h1>
+                <p class="card-subtitle">Menu nr: {{ pizza.id }}</p>
+                <img class="card-img-top" v-bind:src="pizza.image"/>
+                <p class="card-text">Hipsterlevel: {{ pizza.hypeLevel }}</p>
                 <p class="card-text">Toppings:</p>
-                <ul class="card-text">
-                    @{
-                        foreach (var item in Model.Toppings)
-                        {
-                            <li>
-                                @item
-                            </li>
-                        }
-                    }
+                <ul class="card-text" v-for="topping in pizza.toppings">
+                    <li>
+                        {{ topping }}
+                    </li>
                 </ul>
-                <p class="card-text">Hipster level: @Model.HypeLevel</p>
-                <a class="btn btn-info"
-                   asp-controller="Joke" asp-action="Edit" asp-route-name="@Model.Name" asp-route-id="@Model.Id"
-                   asp-route-toppings="@Model.Toppings" asp-route-hypelevel="@Model.HypeLevel">
-                    Ändra här
-                </a>
+                <a class="card-footer btn btn-outline-success" v-on:click="winner()">Set as winner</a>
             </div>
         </div>
     </div>
+
 </div>
+
 
 @section scripts {
     <script src="~/js/app.js" asp-append-version="true"></script>
