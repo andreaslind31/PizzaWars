@@ -4,6 +4,7 @@
         pizzas: [],
         homePizza: [],
         counter: 0,
+        winner: true,
     },
     mounted() {
         this.getData();
@@ -31,8 +32,16 @@
                 return obj.name !== name;
             });
         },
-        incrCounter() {
-            this.counter++
+        winnerPizza(name) {
+            this.pizzas = this.pizzas.filter(function (obj) {
+                obj.hypeLevel++;
+                return obj.name === name;
+            });
+            console.log(this.pizzas.name);
+            if (this.counter < 10) {
+                this.counter++;
+            }
+            
         },
     }
 })

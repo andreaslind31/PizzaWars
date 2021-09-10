@@ -63,9 +63,14 @@ namespace PizzaWars.UI.Controllers
             pizza3.Image = pizzaImg.Result.Image;
             toppings = new List<string>() { "ham", "cheese", "tomatosauce", "pineapple" };
             pizza3.Toppings = toppings;
-            
-            List<PizzaModel> pizzas = new List<PizzaModel>() { pizza1, pizza2, pizza3 };
 
+            pizzaImg = PizzaProcessor.LoadPizza();
+            PizzaModel pizza4 = new PizzaModel() { Name = "Funghi-like", Id = 4 };
+            pizza4.Image = pizzaImg.Result.Image;
+            toppings = new List<string>() { "mushrooms", "cheese", "tomatosauce" };
+            pizza4.Toppings = toppings;
+
+            List<PizzaModel> pizzas = new List<PizzaModel>() { pizza1, pizza2, pizza3, pizza4 };
             return pizzas;
         }
         
