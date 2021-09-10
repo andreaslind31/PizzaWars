@@ -1,5 +1,4 @@
 ﻿@* Pizza/Index *@
-@*@model PizzaWars.Models.PizzaModel*@
 
 
 <div class="row bg-dark">
@@ -7,24 +6,45 @@
         <div class="card">
             <div class="card-body">
                 <small class="card-text">Menu nr: {{ pizza.id }}</small>
-                <h1 class="card-title h1 text-black-50" v-if="counter == 0" v-on:click="deletePizza(pizza.name)">{{ pizza.name }}</h1>
-                <h1 class="card-title h1 text-success" v-if="counter > 0">{{ pizza.name }} WON!!</h1>
-                <img class="card-img-top" v-bind:src="pizza.image" />
+                <h1 class="card-title h1 text-black-50" v-if="!winner">{{ pizza.name }}</h1>
+                <h1 class="card-title h1 text-success" v-if="winner">{{ pizza.name }} WON!!</h1>
+                <img class="card-img img-even" v-bind:src="pizza.image" />
                 <p class="card-text" v-if="pizza.hypeLevel < 10">Hypelevel: {{ pizza.hypeLevel }}</p>
-                <h5 class="card-text text-info" v-if="pizza.hypeLevel == 10">Hypelevel: {{ pizza.hypeLevel }} : maxxed out!</h5>
+                <h5 class="card-text text-info" v-if="pizza.hypeLevel == 10">Hypelevel {{ pizza.hypeLevel }} : maxxed out!</h5>
                 <p class="card-text text-info" v-if="pizza.hypeLevel > 10">Tried to increment hypelevel but its already maxxed!</p>
                 <p class="card-text">Toppings:</p>
                 <ul class="card-text" v-for="topping in pizza.toppings">
                     <li>
-                        {{ topping }}
+                        <p class="list-group-item">{{ topping }}</p>
                     </li>
                 </ul>
-                <a class="card-footer btn btn-outline-success" v-on:click="winnerPizza(pizza.name)">Set as winner</a>
+                <small class="card-text" >Add topping:</small>
+                <select v-model="selected">
+                    <option v-for="option in additionalToppings" v-bind:text="option.text">
+                         {{ option.text }}
+                    </option>
+                </select>
+                <ul>
+                    <li>
+                        <p class="list-group-item">{{ selected }}</p>
+                    </li>
+                </ul>
+                
+                @*<ul>
+                    <topping-item v-for="item in additionalToppings" v-bind:topping="item" v-bind:key="item.text">
+                         //här genereras kod från additionalToppings-arrayen 
+                    </topping-item>
+                </ul>*@
 
+                <div class="card-columns">
+                    <a class="btn btn-success" v-if="!winner" v-on:click="winnerPizza(pizza.name)">Set as winner</a>
+                    <a class="btn btn-warning" v-if="!winner" v-on:click="deletePizza(pizza.name)">Delete this shit</a>
+                    <a class="btn btn-info" v-if="counter > 0" v-on:click="getData()">Give me more</a>
+                </div>
             </div>
         </div>
     </div>
-
+    <small class="text-muted">{{ message }}</small>
 </div>
 
 
