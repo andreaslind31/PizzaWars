@@ -1,6 +1,42 @@
-﻿Vue.component('topping-item', {
+﻿'use strict';
+
+//a component’s data option must be a function,
+//so that each instance can maintain an independent copy of the returned data object:
+Vue.component('add-sauces', {
+    data: function () {
+        return {
+            count: 0
+        }
+    },
+    template: '<button class="btn btn-light" v-on:click="count++">Click me to add sauce: {{ count }}</button>'
+})
+Vue.component('add-toppings', {
     props: ['topping'],
-    template: '<li> {{ topping.text }} </li>'
+    data: function (topping) {
+        return this.selected = topping;
+    },
+    template: `
+    <div class="add-toppings">
+      <p>{{ topping.text }}</p>
+      <div v-html="topping.content"></div>
+    </div>
+  `
+})
+Vue.component('topping-checkbox', {
+    model: {
+        prop: 'checked',
+        event: 'change'
+    },
+    props: {
+        checked: Boolean
+    },
+    template: `
+            <input
+                type="checkbox"
+                v-bind:checked="checked"
+                v-on:change="$emit('change', $event.target.checked)"
+                >
+    `
 })
 
 var app = new Vue({
