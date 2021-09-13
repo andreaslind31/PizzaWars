@@ -1,47 +1,47 @@
 ﻿'use strict';
 
+
 //a component’s data option must be a function,
 //so that each instance can maintain an independent copy of the returned data object:
 Vue.component('add-sauces', {
     data: function () {
         return {
-            count: 0
+            count: 0,
         }
     },
-    template: '<button class="btn btn-light" v-on:click="count++">Click me to add sauce: {{ count }}</button>'
+    template: '<button class="btn btn-light" v-on:click="count++">Click to add sauce: {{ count }}</button>'
 })
 Vue.component('add-toppings', {
     props: ['topping'],
-    data: function (topping) {
-        return this.selected = topping;
-    },
     template: `
     <div class="add-toppings">
       <p>{{ topping.text }}</p>
       <div v-html="topping.content"></div>
     </div>
-  `
+    `
 })
-Vue.component('topping-checkbox', {
-    model: {
-        prop: 'checked',
-        event: 'change'
-    },
-    props: {
-        checked: Boolean
+Vue.component('message-component', {
+    data: function () {
+            return {
+                message: 'show additional toppings'
+        }
+        if (message == 'additional toppings listed') {
+            this.isToppingsShown = true;
+            return console.log(this.isToppingsShown);
+        }
+        
     },
     template: `
-            <input
-                type="checkbox"
-                v-bind:checked="checked"
-                v-on:change="$emit('change', $event.target.checked)"
-                >
+    <button class="btn btn-info" v-on:click="message = 'additional toppings listed'">
+     {{ message }}
+    </button>
     `
 })
 
 var app = new Vue({
     el: '#app',
     data: {
+        isToppingsShown : false,
         message: 'You loaded this page on ' + new Date().toLocaleString(),
         pizzas: [],
         homePizza: [],
@@ -49,18 +49,17 @@ var app = new Vue({
         winner: false,
         selected: '',
         additionalToppings: [
-            { text: "Moooore Tomatoes" },
-            { text: "Cheeseuzz" },
-            { text: "Ham-string me" },
-            { text: "Shruuuuums" },
-            { text: "Shrimpsus" },
-            { text: "Pineapple-me" },
-            { text: "Beer?" },
+            { id: 0, text: "Moooore Tomatoes" },
+            { id: 1, text: "Cheeseuzz" },
+            { id: 2, text: "Ham-string me" },
+            { id: 3, text: "Shruuuuums" },
+            { id: 4, text: "Shrimpsus" },
+            { id: 5, text: "Pineapple-me" },
+            { id: 6, text: "Beer?" },
         ]
     },
     mounted() {
         this.getData();
-        this.getDataHome();
     },
     methods: {
         getData() {
@@ -72,14 +71,6 @@ var app = new Vue({
             });
             this.counter = 0;
             this.winner = false;
-        },
-        getDataHome() {
-            axios.get('/Home/HomePizzaImg').then(res => {
-                this.homePizza = res.data;
-                console.log(res.data);
-            }).catch(err => {
-                console.log(err)
-            });
         },
         deletePizza(name) {
             this.pizzas = this.pizzas.filter(function (obj) {

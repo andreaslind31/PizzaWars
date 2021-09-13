@@ -18,33 +18,30 @@
                         <p class="list-group-item">{{ topping }}</p>
                     </li>
                 </ul>
-                <ul>
+                @*<ul>
                     <li>
                         <p class="list-group-item" v-model="selected">Added: {{ selected }}</p>
                     </li>
-                </ul>
+                </ul>*@
 
+                @* vue-components *@
+                <message-component>
+
+                </message-component>
                 <div class="card-columns">
 
-                    <p class="card-text text-info">Add topping ? -></p>
-                    <topping-checkbox v-model="addTopping" class="form-check-input">
-                        @* vue-component *@
-                    </topping-checkbox>
-
-                    <add-toppings 
-                                  v-for="topping in additionalToppings"
-                                  v-bind:key="topping.text"
-                                  v-bind:topping="topping"
-                                  v-on:click="topping">
-                        @* vue-component - 
-                              needs some work to check if the checkbox is checked
-                            + this needs a func that will add the topping to selected *@
+                    @* add an if statement here to show toppings when button is clicked *@
+                    <add-toppings v-for="item in additionalToppings"
+                                  v-bind:topping="item"
+                                  v-bind:key="item.text">
                     </add-toppings>
 
                     <add-sauces>
-                        @* vue-component *@
+
                     </add-sauces>
                 </div>
+
+                <br />
                 <div class="card-columns">
                     <a class="btn btn-success" v-if="!winner" v-on:click="winnerPizza(pizza.name)">Set as winner</a>
                     <a class="btn btn-warning" v-if="!winner" v-on:click="deletePizza(pizza.name)">Delete this shit</a>
